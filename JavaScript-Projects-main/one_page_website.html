@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Page Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero">
+        <h1>Welcome to My One-Page Website</h1>
+    </header>
+
+    <main>
+        <section class="gallery">
+            <div class="gallery-grid">
+                <img src="images/thumbs/Acropolis.jpg" alt="Acropolis" data-full="images/fullsize/Acropolis.jpg" class="thumbnail">
+                <img src="images/thumbs/beach.jpg" alt="Beach" data-full="images/fullsize/beach.jpg" class="thumbnail">
+                <img src="images/thumbs/guard.jpg" alt="Guard" data-full="images/fullsize/guard.jpg" class="thumbnail">
+                <img src="images/thumbs/lighthouse.jpg" alt="Lighthouse" data-full="images/fullsize/lighthouse.jpg" class="thumbnail">
+                <img src="images/thumbs/meteora.jpg" alt="Meteora" data-full="images/fullsize/meteora.jpg" class="thumbnail">
+                <img src="images/thumbs/Mykonos.jpg" alt="Mykonos" data-full="images/fullsize/Mykonos.jpg" class="thumbnail">
+                <img src="images/thumbs/Navagio.jpg" alt="Navagio Beach" data-full="images/fullsize/Navagio.jpg" class="thumbnail">
+                <img src="images/thumbs/Santorini.jpg" alt="Santorini" data-full="images/fullsize/Santorini.jpg" class="thumbnail">
+                <img src="images/thumbs/village.jpg" alt="Village" data-full="images/fullsize/village.jpg" class="thumbnail">
+            </div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div class="caption" id="caption"></div>
+        <a class="prev" id="prev">&#10094;</a>
+        <a class="next" id="next">&#10095;</a>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const modalImage = document.getElementById('modal-image');
+        const captionText = document.getElementById('caption');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        let currentIndex = 0;
+
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', () => {
+                modal.style.display = 'block';
+                modalImage.src = thumbnail.getAttribute('data-full');
+                captionText.innerHTML = thumbnail.alt;
+                currentIndex = index;
+            });
+        });
+
+        document.querySelector('.close').addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        prev.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : thumbnails.length - 1;
+            modalImage.src = thumbnails[currentIndex].getAttribute('data-full');
+            captionText.innerHTML = thumbnails[currentIndex].alt;
+        });
+
+        next.addEventListener('click', () => {
+            currentIndex = (currentIndex < thumbnails.length - 1) ? currentIndex + 1 : 0;
+            modalImage.src = thumbnails[currentIndex].getAttribute('data-full');
+            captionText.innerHTML = thumbnails[currentIndex].alt;
+        });
+    </script>
+</body>
+</html>
