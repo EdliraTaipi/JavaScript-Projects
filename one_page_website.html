@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Page Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero">
+        <h1>Welcome to My One-Page Website</h1>
+        <p>Discover beautiful images with a lightbox feature.</p>
+    </header>
+
+    <main>
+        <section class="gallery">
+            <h2>Image Gallery</h2>
+            <div class="gallery-grid">
+                <img src="images/thumbs/Acropolis.jpg" alt="Acropolis" data-full="images/fullsize/Acropolis.jpg">
+                <img src="images/thumbs/beach.jpg" alt="Beach" data-full="images/fullsize/beach.jpg">
+                <img src="images/thumbs/guard.jpg" alt="Guard" data-full="images/fullsize/guard.jpg">
+                <img src="images/thumbs/lighthouse.jpg" alt="Lighthouse" data-full="images/fullsize/lighthouse.jpg">
+                <img src="images/thumbs/meteora.jpg" alt="Meteora" data-full="images/fullsize/meteora.jpg">
+                <img src="images/thumbs/Mykonos.jpg" alt="Mykonos" data-full="images/fullsize/Mykonos.jpg">
+                <img src="images/thumbs/Navagio.jpg" alt="Navagio Beach" data-full="images/fullsize/Navagio.jpg">
+                <img src="images/thumbs/Santorini.jpg" alt="Santorini" data-full="images/fullsize/Santorini.jpg">
+                <img src="images/thumbs/village.jpg" alt="Village" data-full="images/fullsize/village.jpg">
+            </div>
+        </section>
+    </main>
+
+    <div id="lightbox">
+        <span class="close">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </div>
+
+    <script src="JS/one_page_website.js"></script>
+</body>
+</html>
